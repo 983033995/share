@@ -9,9 +9,11 @@
     "dev": "vue-cli-service serve"
   },
   "dependencies": {
+    "axios": "^0.21.0",
     "core-js": "^3.6.5",
     "cube-ui": "~1.12.15",
     "postcss-pxtorem": "^5.1.1",
+    "qs": "^6.9.4",
     "vue": "^2.6.11",
     "vue-router": "^3.2.0",
     "vuex": "^3.4.0"
@@ -27,9 +29,11 @@
     "eslint-plugin-vue": "^6.2.2",
     "less": "^3.0.4",
     "less-loader": "^5.0.0",
+    "style-resources-loader": "^1.3.2",
     "stylus": "^0.54.5",
     "stylus-loader": "^3.0.2",
     "vue-cli-plugin-cube-ui": "~0.2.5",
+    "vue-cli-plugin-style-resources-loader": "~0.1.4",
     "vue-template-compiler": "^2.6.11"
   },
   "eslintConfig": {
@@ -46,6 +50,20 @@
     },
     "rules": {}
   },
+  "postcss": {
+    "plugins": {
+      "autoprefixer": {},
+      "postcss-pxtorem": {
+        "rootValue": 16,
+        "selectorBlackList": [
+          "vant"
+        ],
+        "propList": [
+          "*"
+        ]
+      }
+    }
+  },
   "browserslist": [
     "> 1%",
     "last 2 versions",
@@ -58,20 +76,6 @@
     "cube-ui": {
       "transform": "cube-ui/src/modules/${member}",
       "kebabCase": true
-    }
-  },
-  "postcss": {
-    "plugins": {
-      "autoprefixer": {},
-      "postcss-pxtorem": {
-        "rootValue": 18.75,
-        "selectorBlackList": [
-          "vant"
-        ],
-        "propList": [
-          "*"
-        ]
-      }
     }
   }
 }

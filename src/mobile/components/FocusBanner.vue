@@ -2,7 +2,7 @@
  * @Description: 首页轮播图
  * @Author: zhangHeTeng
  * @Date: 2020-10-09 14:42:59
- * @LastEditTime: 2020-10-11 20:43:52
+ * @LastEditTime: 2020-10-12 17:34:45
  * @LastEditors: zhangHeTeng
 -->
 
@@ -58,7 +58,6 @@ export default {
 .banner {
   width: 100%;
   height: 150px;
-  overflow: hidden;
   img {
     width: 100%;
     height: 150px;

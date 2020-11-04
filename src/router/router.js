@@ -2,7 +2,7 @@
  * @Description:
  * @Author: zhangHeTeng
  * @Date: 2020-10-05 10:35:08
- * @LastEditTime: 2020-10-05 12:48:19
+ * @LastEditTime: 2020-11-02 15:21:55
  * @LastEditors: zhangHeTeng
  */
 import Index from "../pc/pages/Index";
@@ -15,11 +15,13 @@ export default [
   // pc板块路由
   {
     path: "/index",
+    name: "pcIndex",
     component: Index
   },
   // 移动端路由
   {
     path: "/mobile",
+    name: "mobile",
     component: () =>
       import(/* webpackChunkName: "mobile" */ "../mobile/pages/Index"),
     redirect: "/mobile/home",
@@ -43,5 +45,11 @@ export default [
           import(/* webpackChunkName: "mobile" */ "../mobile/pages/Me")
       }
     ]
+  },
+  {
+    path: "/mobileLogin",
+    name: "mobileLogin",
+    component: () =>
+      import(/* webpackChunkName: "mobile" */ "../mobile/pages/Login")
   }
 ];

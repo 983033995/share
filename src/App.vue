@@ -2,7 +2,7 @@
  * @Description: 
  * @Author: zhangHeTeng
  * @Date: 2020-09-27 10:18:17
- * @LastEditTime: 2020-10-05 13:04:04
+ * @LastEditTime: 2020-10-14 20:01:56
  * @LastEditors: zhangHeTeng
 -->
 <template>
@@ -24,7 +24,7 @@ html {
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   text-align: center;
-  color: #2c3e50;
+  color: @light-black;
   width: 100%;
   height: 100%;
 }

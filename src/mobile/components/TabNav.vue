@@ -2,7 +2,7 @@
  * @Description: 首页发现与推荐切换栏
  * @Author: zhangHeTeng
  * @Date: 2020-10-09 15:01:13
- * @LastEditTime: 2020-10-11 21:01:15
+ * @LastEditTime: 2020-10-14 20:10:39
  * @LastEditors: zhangHeTeng
 -->
 
@@ -37,11 +37,11 @@ export default {
     return {
       navMenu: ["发现", "推荐"],
       navData: [],
-      currentIndex: 0
+      currentIndex: 0,
     };
   },
   components: {
-    itemList
+    itemList,
   },
   mounted() {
     this.initData(this.currentIndex);
@@ -66,7 +66,7 @@ export default {
             place: "广东-深圳",
             role: "user",
             star: "1",
-            isStar: 0
+            isStar: 0,
           },
           {
             title:
@@ -79,7 +79,7 @@ export default {
             place: "广东-深圳",
             role: "user",
             star: "1",
-            isStar: 0
+            isStar: 0,
           },
           {
             title:
@@ -92,7 +92,7 @@ export default {
             place: "广东-深圳",
             role: "user",
             star: "1",
-            isStar: 0
+            isStar: 0,
           },
           {
             title:
@@ -105,7 +105,7 @@ export default {
             place: "广东-深圳",
             role: "user",
             star: "1",
-            isStar: 0
+            isStar: 0,
           },
           {
             title:
@@ -118,8 +118,8 @@ export default {
             place: "广东-深圳",
             role: "user",
             star: "1",
-            isStar: 0
-          }
+            isStar: 0,
+          },
         ];
       } else {
         this.navData = [
@@ -134,7 +134,7 @@ export default {
             place: "广东-深圳",
             role: "user",
             star: "1",
-            isStar: 0
+            isStar: 0,
           },
           {
             title:
@@ -147,7 +147,7 @@ export default {
             place: "广东-深圳",
             role: "user",
             star: "1",
-            isStar: 0
+            isStar: 0,
           },
           {
             title:
@@ -160,7 +160,7 @@ export default {
             place: "广东-深圳",
             role: "user",
             star: "1",
-            isStar: 0
+            isStar: 0,
           },
           {
             title:
@@ -173,7 +173,7 @@ export default {
             place: "广东-深圳",
             role: "user",
             star: "1",
-            isStar: 0
+            isStar: 0,
           },
           {
             title:
@@ -186,12 +186,12 @@ export default {
             place: "广东-深圳",
             role: "user",
             star: "1",
-            isStar: 0
-          }
+            isStar: 0,
+          },
         ];
       }
-    }
-  }
+    },
+  },
 };
 </script>
 
@@ -199,7 +199,6 @@ export default {
 .tab-nav {
   width: 100%;
   overflow: hidden;
-  background-color: #ffffff;
   margin-top: 10px;
   display: flex;
   flex-direction: column;
@@ -208,21 +207,21 @@ export default {
     height: 50px;
     line-height: 50px;
     text-align: center;
-    color: #000;
+    color: @black;
     font-size: 14px;
     display: flex;
     border-bottom: 1px solid #c5c5c5;
-    margin-bottom: 5px;
     .menu {
       flex: 1;
       position: relative;
+      background-color: @white;
     }
     .active {
       &::after {
         content: "";
         width: 40px;
         height: 4px;
-        background-color: #ff0000;
+        background-color: @light-red;
         position: absolute;
         bottom: 0;
         left: 50%;
@@ -234,6 +233,9 @@ export default {
     width: 100%;
     flex: 1;
     overflow-y: auto;
+    /deep/ .item:first-child {
+      margin-top: 0;
+    }
   }
 }
 </style>

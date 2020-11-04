@@ -20,8 +20,8 @@ export default {
     return {};
   },
   components: {
-    footNav
-  }
+    footNav,
+  },
 };
 </script>
 
@@ -36,7 +36,7 @@ export default {
     flex: 1;
     width: 100%;
     overflow-y: auto;
-    background-color: #eeeeee;
+    background-color: @ligtht-gray;
   }
 }
 </style>

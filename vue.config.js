@@ -2,10 +2,10 @@
  * @Description:
  * @Author: zhangHeTeng
  * @Date: 2020-09-27 10:19:42
- * @LastEditTime: 2020-10-08 08:44:18
+ * @LastEditTime: 2020-11-04 15:16:02
  * @LastEditors: zhangHeTeng
  */
-const { servePath, alias, plugins } = require("./build/build");
+const { servePath, alias, plugins, path } = require("./build/build");
 module.exports = {
   publicPath: "./",
 
@@ -19,7 +19,8 @@ module.exports = {
   },
 
   devServer: {
-    proxy: servePath
+    proxy: servePath,
+    open: true
   },
 
   configureWebpack: {
@@ -31,6 +32,10 @@ module.exports = {
     "cube-ui": {
       postCompile: true,
       theme: true
+    },
+    "style-resources-loader": {
+      preProcessor: "less",
+      patterns: [path.resolve(__dirname, "./src/assets/css/global.less")]
     }
   }
 };

@@ -2,7 +2,7 @@
  * @Description: 
  * @Author: zhangHeTeng
  * @Date: 2020-10-08 08:58:54
- * @LastEditTime: 2020-10-09 20:17:36
+ * @LastEditTime: 2020-10-14 20:04:32
  * @LastEditors: zhangHeTeng
 -->
 
@@ -13,7 +13,7 @@
       <input type="text" placeholder="输入想查找的城市" />
     </div>
     <div class="city" @click="showCity = true">
-      北京<i class="cubeic-pulldown"></i>
+      {{ currentCity }}<i class="cubeic-pulldown"></i>
     </div>
     <transition name="slide">
       <div class="city-area" v-if="showCity">
@@ -37,39 +37,64 @@ export default {
   name: "navMenu",
   data() {
     return {
-      showCity: false
+      showCity: false,
+      currentCity: "未知",
     };
   },
   components: {
-    city
+    city,
   },
-  methods: {}
+  mounted() {
+    this.getPosition();
+  },
+  methods: {
+    // 城市定位
+    /* eslint-disable */
+    getPosition() {
+      let _this = this;
+      let geolocation = new BMap.Geolocation();
+      geolocation.getCurrentPosition(function (r) {
+        if (this.getStatus() == BMAP_STATUS_SUCCESS) {
+          let mk = new BMap.Marker(r.point);
+          let currentLat = r.point.lat;
+          let currentLon = r.point.lng;
+          let pt = new BMap.Point(currentLon, currentLat);
+          let geoc = new BMap.Geocoder();
+          geoc.getLocation(pt, function (rs) {
+            let addComp = rs.addressComponents;
+            console.log("addComp", addComp);
+            _this.currentCity = addComp.city;
+          });
+        }
+      });
+    },
+    /* eslint-disable */
+  },
 };
 </script>
 
 <style lang="less" scoped>
 .nav-menu {
   height: 60px;
-  overflow: hidden;
   display: flex;
-  background-color: #ff4467;
+  background-color: @light-red;
   .search {
     flex: 1;
     height: 40px;
     line-height: 40px;
     margin: 5px 20px;
-    border: 1px solid #333;
+    border: 1px solid @light-black;
     border-radius: 20px;
     display: flex;
     overflow: hidden;
-    background-color: #fff;
+    background-color: @white;
     i {
       font-size: 20px;
-      color: #666666;
+      color: @black-gray;
       width: 40px;
       height: 40px;
       display: block;
-      background-color: #fff;
+      background-color: @white;
     }
     input {
       height: 20px;
@@ -85,7 +110,7 @@ export default {
   .city {
     width: 70px;
     line-height: 60px;
-    color: #fff;
+    color: @white;
     font-size: 16px;
   }
   .city-area {
@@ -94,7 +119,7 @@ export default {
     right: 0;
     bottom: 0;
     left: 0;
-    background-color: #ffffff;
+    background-color: @white;
     z-index: 999;
     display: flex;
     flex-direction: column;
@@ -103,7 +128,7 @@ export default {
       height: 60px;
       display: flex;
       overflow: hidden;
-      background-color: #ff4467;
+      background-color: @light-red;
       .close-city {
         width: 60px;
         height: 60px;

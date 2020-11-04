@@ -2,7 +2,7 @@
  * @Description: 首页发现和推荐栏目的列表
  * @Author: zhangHeTeng
  * @Date: 2020-10-09 20:20:55
- * @LastEditTime: 2020-10-11 20:55:25
+ * @LastEditTime: 2020-10-14 20:15:53
  * @LastEditors: zhangHeTeng
 -->
 
@@ -21,19 +21,18 @@
     </div>
     <div class="supply">
       <div class="time">{{ item.time }}</div>
-      <div class="role-info">
-        <div>
-          <span class="iconfont icondingwei"></span>
-          {{ item.place }}
-        </div>
-        <div>
-          <span class="iconfont iconyonghu"></span>
-          {{ item.role }}
-        </div>
-        <div>
-          <span class="iconfont iconxinheart118"></span>
-          {{ item.star }}
-        </div>
+
+      <div>
+        <span class="iconfont icondingwei"></span>
+        {{ item.place }}
+      </div>
+      <div>
+        <span class="iconfont iconyonghu"></span>
+        {{ item.role }}
+      </div>
+      <div>
+        <span class="iconfont iconxinheart118"></span>
+        {{ item.star }}
       </div>
     </div>
   </div>
@@ -50,15 +49,18 @@ export default {
       type: Object,
       default() {
         return {};
-      }
-    }
-  }
+      },
+    },
+  },
 };
 </script>
 
 <style lang="less" scoped>
 .item {
   width: 100%;
+  margin: 10px 0;
+  background-color: @white;
+  padding: 10px 0;
   .img-text {
     width: 100%;
     display: flex;
@@ -79,7 +81,7 @@ export default {
         -webkit-line-clamp: 5;
         line-height: 20px;
         font-size: 16px;
-        color: #000;
+        color: @black;
         font-weight: bold;
         text-align: left;
       }
@@ -88,7 +90,7 @@ export default {
         height: 30px;
         line-height: 30px;
         font-size: 12px;
-        color: #999;
+        color: @gray;
         display: block;
         overflow: hidden;
         text-overflow: ellipsis;
@@ -112,28 +114,15 @@ export default {
     line-height: 30px;
     display: flex;
     font-size: 12px;
-    color: #999;
+    color: @gray;
     overflow: hidden;
-    .time {
-      flex: 2;
-      text-align: left;
-      margin-left: 10px;
-    }
-    .role-info {
-      flex: 3;
-      display: flex;
+    div {
+      text-align: right;
       overflow: hidden;
-      margin-right: 10px;
-      div {
-        flex: 1;
-        text-align: right;
-        overflow: hidden;
-        text-overflow: ellipsis;
-        white-space: nowrap;
-      }
-      div:first-child {
-        flex: 1.5;
-      }
+      text-overflow: ellipsis;
+      white-space: nowrap;
+      text-align: left;
+      margin: 0 5px;
     }
   }
 }
